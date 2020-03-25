@@ -1,0 +1,55 @@
+INSERT INTO admin (idadmin, fname, sname, email, password, phone, profilepic, active)
+VALUES ('1', 'fadmin', 'sadmin', 'admin@admin', md5('admin'), '555-55-55', NULL, '1');
+
+INSERT INTO buyer(idbuyer, fname, sname, email, password, phone, spend_limit, profilepic, next_approver, active) VALUES ('1','fbuyer','sbuyer','buyer@buyer',md5('buyer'),'1234','1000',NULL,'1','1');
+
+INSERT INTO `replenisher` (`idreplenisher`, `fname`, `sname`, `email`, `password`, `phone`, `profilepic`, `active`) VALUES ('1', 'freplenisher', 'sreplenisher', 'replenisher@replenisher', md5('replenisher'), '1234', NULL, '1');
+
+INSERT INTO `supplier` (`idsupplier`, `fname`, `sname`, `email`, `password`, `phone`, `profilepic`, `commercial_name`, `active`) VALUES ('1', 'fsupplier', 'fsupplier', 'supplier@supplier', md5('supplier'), '1234567', NULL, 'Supplier\'s Company', '1');
+
+INSERT INTO `requisition` (`idrequisition`, `status`) VALUES ('1', '0');
+INSERT INTO `requisition` (`idrequisition`, `status`) VALUES ('2', '1');
+INSERT INTO `requisition` (`idrequisition`, `status`) VALUES ('3', '2');
+INSERT INTO `requisition` (`idrequisition`, `status`) VALUES ('4', '3');
+
+INSERT INTO `warehouse` (`idwarehouse`, `name`, `active`, `replenisher`) VALUES ('1', 'Bodega Chia km3', '1', '1');
+INSERT INTO `warehouse` (`idwarehouse`, `name`, `active`, `replenisher`) VALUES ('2', 'Bodega Alcalá', '1', '1');
+INSERT INTO `warehouse` (`idwarehouse`, `name`, `active`, `replenisher`) VALUES ('3', 'Bodega MariaDB Pasto
+', '1', '1');
+INSERT INTO `warehouse` (`idwarehouse`, `name`, `active`, `replenisher`) VALUES ('4', 'Bodega La Candelaria', '1', '1');
+INSERT INTO `warehouse` (`idwarehouse`, `name`, `active`, `replenisher`) VALUES ('5', 'Bodega Maestra', '1', '1');
+
+INSERT INTO `item` (`iditem`, `name`, `description`, `photo`, `warehouse`, `active`, `replenisher`) VALUES ('1', 'Cuaderno Agorllado Norma Grande F32', 'Cuaderno argollado Norma', NULL, '1', '1', '1');
+INSERT INTO `item` (`iditem`, `name`, `description`, `photo`, `warehouse`, `active`, `replenisher`) VALUES ('2', 'Paquete x30 Esfero BIC Negro', 'Esfero de buena calidad, paquete x30', NULL, '2', '1', '1');
+INSERT INTO `item` (`iditem`, `name`, `description`, `photo`, `warehouse`, `active`, `replenisher`) VALUES ('3', 'Borrador de Nata Caja x50', 'Borrador de nata para borrar esfero y lapiz', NULL, '3', '1', '1');
+INSERT INTO `item` (`iditem`, `name`, `description`, `photo`, `warehouse`, `active`, `replenisher`) VALUES ('4', 'Tinta China Amarilla Caja x10', 'Tinta China', NULL, '4', '1', '1');
+INSERT INTO `item` (`iditem`, `name`, `description`, `photo`, `warehouse`, `active`, `replenisher`) VALUES ('5', 'Paquete de Reglas x100', 'Paquete de reglas de plástico de diversos colores', NULL, '5', '1', '1');
+
+INSERT INTO `contract` (`idcontract`, `name`, `policy`, `supplier`, `active`, `replenisher`) VALUES ('1', 'Contrato de negocio #234', 'Toda marca de lápiz y esfero será provista a mitad de precio', '1', '1', '1');
+INSERT INTO `contract` (`idcontract`, `name`, `policy`, `supplier`, `active`, `replenisher`) VALUES ('2', 'Contrato de subasta #453', 'Toda marca de cuaderno y hoja de todo tipo será aprovisionada a un 56% del precio original', '1', '1', '1');
+INSERT INTO `contract` (`idcontract`, `name`, `policy`, `supplier`, `active`, `replenisher`) VALUES ('3', 'Importation Contract', 'All items from Norma S.A. will be surced as 40% off', '1', '1', '1');
+INSERT INTO `contract` (`idcontract`, `name`, `policy`, `supplier`, `active`, `replenisher`) VALUES ('4', 'Contrato de negocio #111', 'Reglas a mitad de precio del mercado a la fecha Marzo 2020', '1', '1', '1');
+INSERT INTO `contract` (`idcontract`, `name`, `policy`, `supplier`, `active`, `replenisher`) VALUES ('5', 'Contrato de negocio #235', 'Toda marca de lápiz y esfero será provista a un 4to de precio pero con interés del 4%', '1', '1', '1');
+
+INSERT INTO `requisition_has_buyer` (`id`, `buyer`, `requisition`, `role`, `approval`, `comment`) VALUES ('0', '1', '1', '0', NULL, NULL);
+INSERT INTO `requisition_has_buyer` (`id`, `buyer`, `requisition`, `role`, `approval`, `comment`) VALUES ('1', '1', '1', '1', 1, NULL);
+INSERT INTO `requisition_has_buyer` (`id`, `buyer`, `requisition`, `role`, `approval`, `comment`) VALUES ('2', '1', '1', '1', 1, NULL);
+INSERT INTO `requisition_has_buyer` (`id`, `buyer`, `requisition`, `role`, `approval`, `comment`) VALUES ('3', '1', '1', '1', NULL, 'Comentario de buyer 1');
+INSERT INTO `requisition_has_buyer` (`id`, `buyer`, `requisition`, `role`, `approval`, `comment`) VALUES ('4', '1', '1', '1', NULL, 'Comentario de buyer1 v2');
+
+INSERT INTO `requisition_has_supplier` (`id`, `requisition`, `supplier`) VALUES ('1', '1', '1');
+INSERT INTO `requisition_has_supplier` (`id`, `requisition`, `supplier`) VALUES ('2', '2', '1');
+INSERT INTO `requisition_has_supplier` (`id`, `requisition`, `supplier`) VALUES ('3', '3', '1');
+INSERT INTO `requisition_has_supplier` (`id`, `requisition`, `supplier`) VALUES ('4', '4', '1');
+
+INSERT INTO `requisition_has_item` (`id`, `requisition`, `item`) VALUES ('1', '1', '1');
+INSERT INTO `requisition_has_item` (`id`, `requisition`, `item`) VALUES ('2', '2', '2');
+INSERT INTO `requisition_has_item` (`id`, `requisition`, `item`) VALUES ('3', '3', '3');
+INSERT INTO `requisition_has_item` (`id`, `requisition`, `item`) VALUES ('4', '4', '4');
+
+INSERT INTO `item_has_contract` (`id`, `item`, `contract`, `price`) VALUES ('1', '1', '1', '1000');
+INSERT INTO `item_has_contract` (`id`, `item`, `contract`, `price`) VALUES ('2', '2', '2', '2000');
+INSERT INTO `item_has_contract` (`id`, `item`, `contract`, `price`) VALUES ('3', '3', '3', '3000');
+INSERT INTO `item_has_contract` (`id`, `item`, `contract`, `price`) VALUES ('4', '4', '4', '4000');
+INSERT INTO `item_has_contract` (`id`, `item`, `contract`, `price`) VALUES ('5', '5', '5', '5000');
+

@@ -1,0 +1,12 @@
+@font-face {
+font-family: "segan";
+src: url("../fonts/segan.ttf");
+}
+
+.minifont {
+    font-size: 0.8em;
+}
+
+.segan {
+    font-family: 'segan';
+}
